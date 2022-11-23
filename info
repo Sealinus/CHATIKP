@@ -1,0 +1,156 @@
+{
+  "uuid": "31fc56816cec2e81401310bf579b32c5",
+  "path": "Offline/%D0%A7%D0%90%D0%A2%D0%98%D0%9A%D0%9F%20v3.2",
+  "name": "ЧАТИКП v3.2",
+  "content": "",
+  "created_at": "2022-11-19 19:03:50",
+  "updated_at": "2022-11-19 19:18:08",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "b69537f9963aac55961ac467592e363e",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "c16d5f8a711446d78298bd298d5ec994": 1,
+        "98d2b10b30fa4d5d85bb6cb63485262b": 1,
+        "f1c98af49a4b4b0288cef27489b1e409": 1,
+        "25d4e6b249714650a834a5e10728462e": 1,
+        "00220bc5fb38485299bf325dccb035e2": 1,
+        "e1431909b6224099a26f74288c41b03b": 1,
+        "5c1036b53a4146e4841df4ed0a9de8f0": 3,
+        "2e256e7e7fa84ea5bf92c31523d3fb00": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "8PIN_RFID",
+          1,
+          "RFID-RC522",
+          "JP1",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "dac2299db3184b029c174c579a1059d3",
+            "uuid": "2e256e7e7fa84ea5bf92c31523d3fb00"
+          }
+        ],
+        [
+          "K2-3.6×6.1_SMD",
+          3,
+          "KEY-SMD_2P-L6.2-W3.6-LS8.0",
+          "KEY1,KEY2,KEY3",
+          {
+            "BOM_Supplier Part": "C118141",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer Part": "K2-1107ST-A4SW-06",
+            "puuid": "daacbe2eec304950b61eef2efe596556",
+            "uuid": "5c1036b53a4146e4841df4ed0a9de8f0"
+          }
+        ],
+        [
+          "ARDUINO_MEGA2560_EXT",
+          1,
+          "ARDUINO-MEGA2560-EXT",
+          "PCB1",
+          {
+            "BOM_Manufacturer Part": "",
+            "puuid": "",
+            "uuid": "c16d5f8a711446d78298bd298d5ec994"
+          }
+        ],
+        [
+          "FS1000A (Vertical)",
+          1,
+          "FS1000A",
+          "RF1",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "2c2faa5a34d54f8aa0b7c9c370acaca8",
+            "uuid": "f1c98af49a4b4b0288cef27489b1e409"
+          }
+        ],
+        [
+          "ROUND ENCODER PINS",
+          1,
+          "SW-TH_PEC11R-4XXXF-SXXXX",
+          "SW1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C143789",
+            "BOM_Manufacturer": "BOURNS",
+            "BOM_Manufacturer Part": "PEC11R-4015F-S0024",
+            "BOM_LCSC Assembly": "Yes",
+            "puuid": "77fbb25425be4a41b080944c96357ff7",
+            "uuid": "e1431909b6224099a26f74288c41b03b"
+          }
+        ],
+        [
+          "MX-RM-5V",
+          1,
+          "MX-RM-5V (VERTICAL)",
+          "U1",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "63a043c8f8934c57bdc94191c9099261",
+            "uuid": "98d2b10b30fa4d5d85bb6cb63485262b"
+          }
+        ],
+        [
+          "16*2 I2C_LCD DISPLAY",
+          1,
+          "16*2_I2C_LCD DISPLAY",
+          "U2",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "undefined",
+            "BOM_Supplier": "",
+            "puuid": "ff02af5208914d719411242c433a21ef",
+            "uuid": "25d4e6b249714650a834a5e10728462e"
+          }
+        ],
+        [
+          "Zummer-12mm",
+          1,
+          "Y_ZUMMER-12MM",
+          "U3",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "5f21cb5d6024481aa7851bc4323253cc",
+            "uuid": "00220bc5fb38485299bf325dccb035e2"
+          }
+        ]
+      ],
+      "updateTime": 1668874688,
+      "createTime": 1668873830,
+      "histories": [],
+      "created_at": "2022-11-19 19:03:50",
+      "updated_at": "2022-11-19 19:18:08"
+    }
+  ],
+  "sort": [],
+  "title": "ЧАТИКП v3.2",
+  "foldername": "ЧАТИКП v3.2",
+  "schfilename": "ЧАТИКП v3.2.json",
+  "schfilemtime": 1668874688910
+}
