@@ -37,7 +37,7 @@ void keyboard (){
 
   char key = pad.getKey();
   if (key) {
-    lcd.print("p");
+    lcd.print(".!()*,;&/@'");
     Serial.print(key);
   }
 }
