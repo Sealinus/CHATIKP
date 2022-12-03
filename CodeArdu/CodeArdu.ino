@@ -7,8 +7,8 @@
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
-static byte colPins[KP_COLS] = {42, 44, 46, 48};
-static byte rowPins[KP_ROWS] = {34, 36, 38, 40};
+static byte colPins[KP_COLS] = {11, 10, 9, 8};
+static byte rowPins[KP_ROWS] = {A0, A1, A2, A3};
 static char keys[KP_ROWS][KP_COLS] = {
 {'1', '2', '3', 'A'},
 {'4', '5', '6', 'B'},
@@ -16,6 +16,13 @@ static char keys[KP_ROWS][KP_COLS] = {
 {'*', '0', '#', 'D'}
 };
 
+
+// подключаем либу
+#include <SimpleKeypad.h>
+
+#include <Gyver433.h>
+Gyver433_TX<13> tx;  // указали пин
+// создаём клавиатуру
 SimpleKeypad pad((char*)keys, rowPins, colPins, KP_ROWS, KP_COLS);
 
 LiquidCrystal_I2C lcd( 0x3F, 16, 2);
@@ -26,22 +33,22 @@ void setup() {
    lcd.backlight();
    String text = "Big Dick";
   //keyboard();
-  text = newSim(text, "");
-  
+  //text = newSim(text, "");
+
+  Serial.end();
 }
 
 void loop() {
-  
+  keyboard();
 }
 
 
 void keyboard (){
-
-
   char key = pad.getKey();
   if (key) {
-    lcd.print(".!()*,;&/@'");
-    Serial.print(key);
+    //lcd.print(".!()*,;&/@'");
+    //Serial.print(key);
+    lcd.print(key);
   }
 }
 
