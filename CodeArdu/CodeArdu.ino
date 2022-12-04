@@ -1,15 +1,21 @@
-// размеры клавиатуры
 #define KP_ROWS 4
 #define KP_COLS 4
 #define Butn1 0
 #define Butn2 1
 #define Butn3 2
-
-// пины подключения (по порядку штекера)
+#define txp 12
+#define rxp 13
+#define s1 3
+#define s2 4
+#define keyp 5
 
 #include <SimpleKeypad.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
+#include <SimpleKeypad.h>
+#include <Gyver433.h>
+
+
 
 static byte colPins[KP_COLS] = { 11, 10, 9, 8 };
 static byte rowPins[KP_ROWS] = { A0, A1, A2, A3 };
@@ -19,19 +25,18 @@ static char keys[KP_ROWS][KP_COLS] = {
   { '7', '8', '9', 'C' },
   { '*', '0', '#', 'D' }
 };
-
-
-// подключаем либу
-#include <SimpleKeypad.h>
-
-#include <Gyver433.h>
-Gyver433_TX<13> tx;  // указали пин
-// создаём клавиатуру
 SimpleKeypad pad((char*)keys, rowPins, colPins, KP_ROWS, KP_COLS);
+
+Gyver433_TX<txp> tx;
+Gyver433_TX<rxp> rx;
 
 LiquidCrystal_I2C lcd(0x3F, 16, 2);
 
-String msg="";
+
+
+String msg = "";
+
+
 void setup() {
   lcd.init();
   lcd.backlight();
@@ -42,11 +47,13 @@ void setup() {
 }
 
 void loop() {
+  static int channel = 0;
+  enc.tick();
+  if (enc.right() || enc.left() || enc.click()) {}
   if (digitalRead(Butn1)) {
-        tx.sendData(msg);
+    tx.sendData(msg);
   }
-      digitalWrite(13, 0);
-
+  digitalWrite(13, 0);
 }
 
 
@@ -144,3 +151,4 @@ String newSim(String text, char a) {
   text = text + a;
   return (text);
 }
+
