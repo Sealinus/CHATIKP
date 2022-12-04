@@ -14,7 +14,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <SimpleKeypad.h>
 #include <Gyver433.h>
-
+#include <EncButton.h>
 
 
 static byte colPins[KP_COLS] = { 11, 10, 9, 8 };
@@ -32,7 +32,7 @@ Gyver433_TX<rxp> rx;
 
 LiquidCrystal_I2C lcd(0x3F, 16, 2);
 
-
+EncButton<EB_TICK, s1, s2, keyp> enc;
 
 String msg = "";
 
@@ -152,3 +152,17 @@ String newSim(String text, char a) {
   return (text);
 }
 
+int ChannelChange(int channel) {
+  while (enc.click()) {
+    lcd.clear();
+    lcd.home();
+    lcd.print("Your channel is:");
+    lcd.setCursor(0, 1);
+    lcd.print(channel);
+    enc.tick();
+    if (enc.right()){channel = ++channel % 20;}
+    if (enc.left()){channel = abs(--channel) % 20;}
+  }
+  lcd.clear();
+  return channel; 
+}
