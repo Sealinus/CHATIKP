@@ -1,20 +1,17 @@
 #define KP_ROWS 4
 #define KP_COLS 4
-#define Butn1 0
-#define Butn2 1
-#define Butn3 2
 #define txp 12
-#define rxp 13
-#define s1 3
-#define s2 4
-#define keyp 5
+#define rxp 2
+#define sone 5
+#define stwo 6
+#define keyp 7
 
 #include <SimpleKeypad.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <SimpleKeypad.h>
 #include <Gyver433.h>
-#include <EncButton.h>
+#include <EncButton2.h>
 
 
 static byte colPins[KP_COLS] = { 11, 10, 9, 8 };
@@ -32,7 +29,7 @@ Gyver433_TX<rxp> rx;
 
 LiquidCrystal_I2C lcd(0x3F, 16, 2);
 
-EncButton<EB_TICK, s1, s2, keyp> enc;
+EncButton2<EB_ENCBTN> enc(INPUT, sone, stwo, keyp);  // энкодер с кнопкой
 
 String msg = "";
 
@@ -40,28 +37,23 @@ String msg = "";
 void setup() {
   lcd.init();
   lcd.backlight();
-  pinMode(Butn1, INPUT);
-  pinMode(Butn2, INPUT);
-  pinMode(Butn3, INPUT);
-  Serial.end();
+Serial.begin(9600);
 }
 
 void loop() {
   static int channel = 0;
-  enc.tick();
-  if (enc.right() || enc.left() || enc.click()) {}
-  if (digitalRead(Butn1)) {
-    tx.sendData(msg);
-  }
-  digitalWrite(13, 0);
+  static char key = pad.getKey();
+  static char PadBut = "";
+  static int RadioChan = 0;
+  keyboard();
+ 
 }
 
 
 void keyboard() {
   char key = pad.getKey();
   if (key) {
-    //lcd.print(".!()*,;&/@'");
-    //Serial.print(key);
+    Serial.print(key);
     tx.sendData(key);
   }
 }
@@ -154,14 +146,14 @@ String newSim(String text, char a) {
 
 int ChannelChange(int channel) {
   while (enc.click()) {
-    lcd.clear();
+    //lcd.clear();
     lcd.home();
     lcd.print("Your channel is:");
     lcd.setCursor(0, 1);
     lcd.print(channel);
     enc.tick();
-    if (enc.right()){channel = ++channel % 20;}
-    if (enc.left()){channel = abs(--channel) % 20;}
+    if (enc.right()){channel = ++channel % 20; Serial.println("right");}
+    if (enc.left()){channel = abs(--channel) % 20; Serial.println("left");}
   }
   lcd.clear();
   return channel; 
