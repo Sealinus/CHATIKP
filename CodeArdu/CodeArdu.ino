@@ -63,6 +63,5 @@ char keyboard() {
     return key;
     }
 
-    //lcd.clear();
   }
 }
